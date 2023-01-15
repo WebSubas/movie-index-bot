@@ -1,11 +1,11 @@
-# © https://t.me/CyniteBackup
+# © https://t.me/Soren_Corporation
 
 import requests
 from bs4 import BeautifulSoup
 
 
 url_list = {}
-api_key = "Your Api Key"
+api_key = "b846b403d53a4694d0829b33ec082a61b67d81aa"
 
 
 def search_movies(query):
@@ -34,10 +34,10 @@ def get_movie(query):
         links = movie_page_link.find_all("a", {'rel': 'noopener', 'data-wpel-link': 'internal'})
         final_links = {}
         for i in links:
-            url = f"https://shortnerfly.com/api?api={api_key}&url={i['href']}"
+            url = f"https://GPLinks.in/api?api={api_key}&url={i['href']}"
             response = requests.get(url)
             link = response.json()
-            final_links[f"{i.text}"] = link['shortenedUrl']
+            final_links[f"{i.text}"] = link['GPLinks']
         movie_details["links"] = final_links
     return movie_details
 
